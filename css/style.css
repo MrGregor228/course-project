@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
 /* line 5, ../../../../../../Ruby26-x64/lib/ruby/gems/2.6.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
@@ -225,8 +224,10 @@ header .navigation-panel ul li a:hover:after, header .navigation-panel ul li a:f
 footer {
   background-color: #533f81;
   padding-top: 100px;
+  -webkit-clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+  clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
 }
-/* line 8, ../scss/footer.scss */
+/* line 11, ../scss/footer.scss */
 footer .footer-content-wrapper {
   max-width: 1000px;
   display: flex;
@@ -235,7 +236,7 @@ footer .footer-content-wrapper {
   margin-left: auto;
   padding: 0 15px;
 }
-/* line 15, ../scss/footer.scss */
+/* line 18, ../scss/footer.scss */
 footer .footer-content-wrapper .footer-column {
   max-width: calc(33% - 30px);
   width: 100%;
@@ -243,36 +244,36 @@ footer .footer-content-wrapper .footer-column {
   line-height: 1.5;
   padding: 15px;
 }
-/* line 22, ../scss/footer.scss */
+/* line 25, ../scss/footer.scss */
 footer .footer-content-wrapper .footer-column:nth-child(3) ul {
   display: flex;
 }
-/* line 24, ../scss/footer.scss */
+/* line 27, ../scss/footer.scss */
 footer .footer-content-wrapper .footer-column:nth-child(3) ul li:last-child {
   margin-left: 15px;
 }
-/* line 29, ../scss/footer.scss */
+/* line 32, ../scss/footer.scss */
 footer .footer-content-wrapper .footer-column a {
   color: lightgray;
   text-decoration: none;
 }
-/* line 33, ../scss/footer.scss */
+/* line 36, ../scss/footer.scss */
 footer .footer-content-wrapper .footer-column h6 {
   font-size: 1.5rem;
   font-weight: 500;
 }
-/* line 37, ../scss/footer.scss */
+/* line 40, ../scss/footer.scss */
 footer .footer-content-wrapper .footer-column ul {
   margin-top: 15px;
 }
-/* line 41, ../scss/footer.scss */
+/* line 44, ../scss/footer.scss */
 footer .footer-content-wrapper .last-column {
   width: 100%;
   text-align: center;
   padding: 10px 0;
   color: white;
 }
-/* line 46, ../scss/footer.scss */
+/* line 49, ../scss/footer.scss */
 footer .footer-content-wrapper .last-column hr {
   border: none;
   box-shadow: none;
@@ -328,7 +329,7 @@ footer .footer-content-wrapper .last-column hr {
 }
 /* line 53, ../scss/style.scss */
 .cards-container .card.sale:before {
-  content: "Акция";
+  content: "Sale";
   display: block;
   background: red;
   height: 30px;
@@ -399,7 +400,7 @@ footer .footer-content-wrapper .last-column hr {
   font-size: 12px;
   color: red;
   background-color: rgba(255, 0, 0, 0.25);
-  padding: 6px 10px;
+  padding: 7px 10px;
   border-radius: 4px;
 }
 /* line 123, ../scss/style.scss */

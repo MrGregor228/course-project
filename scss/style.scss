@@ -51,7 +51,7 @@ $orange: #ff9d00;
         }
         &.sale {
             &:before {
-                content: "Акция";
+                content: "Sale";
                 display: block;
                 background: red;
                 height: 30px;
@@ -117,7 +117,7 @@ $orange: #ff9d00;
                 font-size: 12px;
                 color: red;
                 background-color: rgba(red,.25);
-                padding: 6px 10px;
+                padding: 7px 10px;
                 border-radius: 4px;
             }
             .card-prices {

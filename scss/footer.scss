@@ -5,6 +5,9 @@ $orange: #ff9d00;
 footer {
     background-color: $violet;
     padding-top: 100px;
+    -webkit-clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+
     .footer-content-wrapper {
         max-width: 1000px;
         display: flex;
