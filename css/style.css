@@ -328,7 +328,7 @@ footer .footer-content-wrapper .last-column hr {
 }
 /* line 53, ../scss/style.scss */
 .cards-container .card.sale:before {
-  content: "╨Р╨║╤Ж╨╕╤П";
+  content: "Акция";
   display: block;
   background: red;
   height: 30px;
