@@ -46,25 +46,29 @@ $sliders = page_slider();
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                     <!-- Slides -->
-                    <div class="swiper-slide one">
+                    <?php foreach ($sliders as $slider):?>
+                    <div class="swiper-slide" style="background-image: url('<?=$slider['image']?>')">
                         <div class="slide-content-wrapper">
-                            <div class="slide-cutted-block">
+                            <div class="slide-cutted-block" style="background-color: rgba(83, 63, 129, 0.9)">
                                 <div>
-                                <?php foreach ($sliders as $slider):?>
+                               
                                     <h2><?=$slider['title']?></h2>
                                     <h4><?=$slider['subtitle']?></h4>
-                                    <p></p><?=$slider['info']?></p>
+                                    <p><?=$slider['info']?></p>
                                     <button><?=$slider['button']?></button>
-                                <?php endforeach;?>
+                            
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <?php endforeach;?>
                    
-                <!-- If we need pagination -->
+              
+            </div>  
+            <!-- If we need pagination -->
                 <div class="swiper-pagination"></div>
             </div>
-            <!--  Slider bottom cards  -->
+             <!--  Slider bottom cards  -->
             <div class="bottom-cards">
                 <div class="card">
                     <div class="cutted-block">
