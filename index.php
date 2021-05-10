@@ -1,3 +1,13 @@
+<?php
+require_once "db/products/output_tools.php";
+require_once "db/interface.php";
+$items = header_menu();
+$products = output_tools();
+$icons = header_icon();
+$sliders = page_slider();
+
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -18,14 +28,15 @@
                         alt="Toggle button bars icon"></button>
             </div>
             <ul id="menu">
-                <li><a href="#">О нас</a></li>
-                <li><a href="#">Контакты</a></li>
-                <li><a href="#">Оплата и доставка</a></li>
-                <li><a href="#">Каталог</a></li>
-                <li><a href="#">Акции</a></li>
-                <li><a href="#"><img width="25" src="icons/heart.svg" alt=""></a></li>
-                <li><a href="#"><img width="25" src="icons/shopping-cart.svg" alt=""></a></li>
+            <?php foreach($items as $item ):?>
+                <li><a href="#"><?= $item['title']?></a></li>
+           <?php endforeach;?>
+           <?php foreach ($icons as $icon):?>
+                <li><a href="#"><img width="25" src="<?=$icon['image']?>" alt=""></a></li>
+           <?php endforeach;?>
+       
             </ul>
+          
         </nav>
     </header>
     <main>
@@ -39,45 +50,17 @@
                         <div class="slide-content-wrapper">
                             <div class="slide-cutted-block">
                                 <div>
-                                    <h2>Some heading here</h2>
-                                    <h4>Some subheading</h4>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur rem quod,
-                                        optio enim iste neque animi voluptatem eaque impedit nostrum mollitia tenetur
-                                        deleniti repudiandae obcaecati natus asperiores quae velit repellat.</p>
-                                    <button>Button</button>
+                                <?php foreach ($sliders as $slider):?>
+                                    <h2><?=$slider['title']?></h2>
+                                    <h4><?=$slider['subtitle']?></h4>
+                                    <p></p><?=$slider['info']?></p>
+                                    <button><?=$slider['button']?></button>
+                                <?php endforeach;?>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide two">
-                        <div class="slide-content-wrapper">
-                            <div class="slide-cutted-block">
-                                <div>
-                                    <h2>Some heading here</h2>
-                                    <h4>Some subheading</h4>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur rem quod,
-                                        optio enim iste neque animi voluptatem eaque impedit nostrum mollitia tenetur
-                                        deleniti repudiandae obcaecati natus asperiores quae velit repellat.</p>
-                                    <button>Button</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide three">
-                        <div class="slide-content-wrapper">
-                            <div class="slide-cutted-block">
-                                <div>
-                                    <h2>Some heading here</h2>
-                                    <h4>Some subheading</h4>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur rem quod,
-                                        optio enim iste neque animi voluptatem eaque impedit nostrum mollitia tenetur
-                                        deleniti repudiandae obcaecati natus asperiores quae velit repellat.</p>
-                                    <button>Button</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                   
                 <!-- If we need pagination -->
                 <div class="swiper-pagination"></div>
             </div>
@@ -109,47 +92,19 @@
 
                 <div class="card">
                     <div class="card-image">
-                        <img src="images/Lenovo.jpg" alt="">
+                    <?php foreach( $products as $product):?>
+                        <img src="<?=$product ['image']?>" alt="">
+                    
                         <div class="like">
                             <span><img width="20" src="icons/card-heart.svg" alt=""></span>
                         </div>
                         <div class="top-ribbon">TOP</div>
                     </div>
                     <div class="card-body">
-                        <h6 class="card-heading">Ноутбук Lenovo IdeaPad S145-15AST</h6>
+                        <h6 class="card-heading"><?=$product ['title']?></h6>
                         <div class="card-prices">
-                            <p class="gray-price">10 999</p>
-                            <div class="card-raiting">
-                                <span>4.7 </span><svg width="12" fill="#fff" xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 576 512">
-                                    <path
-                                        d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="card-prices">
-                            <p class="violet-price">9 999</p>
-                            <a href="#" class="good-link"><svg width="15" xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 192 512">
-                                    <path
-                                        d="M187.8 264.5L41 412.5c-4.7 4.7-12.3 4.7-17 0L4.2 392.7c-4.7-4.7-4.7-12.3 0-17L122.7 256 4.2 136.3c-4.7-4.7-4.7-12.3 0-17L24 99.5c4.7-4.7 12.3-4.7 17 0l146.8 148c4.7 4.7 4.7 12.3 0 17z" />
-                                </svg></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-image">
-                        <img src="images/Lenovo.jpg" alt="">
-                        <div class="like">
-                            <span><img width="20" src="icons/card-heart.svg" alt=""></span>
-                        </div>
-                        <div class="top-ribbon">TOP</div>
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-heading">Ноутбук Lenovo IdeaPad S145-15AST</h6>
-                        <div class="card-prices">
-                            <p class="gray-price">10 999</p>
+                            <p class="gray-price"><?=$product ['price']?></p>
+                            <?endforeach;?>
                             <div class="card-raiting">
                                 <span>4.7 </span><svg width="12" fill="#fff" xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 576 512">
