@@ -7,6 +7,10 @@ $violet: #533f81;
 $blue: #2988ce;
 $orange: #ff9d00;
 
+@mixin boxShadowOutline {
+    box-shadow: 0 0 0 1px lightgray;
+}
+
 :root {
     font-family: "Montserrat", sans-serif;
     font-size: 16px;

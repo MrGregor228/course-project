@@ -12,13 +12,20 @@ function setSaleInterval(eventDate, cardID) {
     }
     setInterval(function () {
         duration = moment.duration(duration - interval, 'milliseconds');
-        document.querySelector(`[data-good-id="${cardID}"] .sale-container`).textContent = `${addZeroToNumber(duration.days())}д : ${addZeroToNumber(duration.hours())}ч : ${addZeroToNumber(duration.minutes())}м : ${addZeroToNumber(duration.seconds())}с`;
+        if (duration - interval == 0 || duration - interval < 0) {
+            document.querySelector(`[data-good-id="${cardID}"] .sale-container`).textContent = 'Завершилась';
+            clearInterval();
+        } else {
+            document.querySelector(`[data-good-id="${cardID}"] .sale-container`).textContent = `${addZeroToNumber(duration.days())}д : ${addZeroToNumber(duration.hours())}ч : ${addZeroToNumber(duration.minutes())}м : ${addZeroToNumber(duration.seconds())}с`;
+        }
     }, interval);
 }
 
 window.addEventListener('DOMContentLoaded', () => {
     let toggle_button = document.querySelector('.toggle-button'),
-        menu = document.getElementById('menu');
+        menu = document.getElementById('menu'),
+        modals = document.querySelectorAll('.modal-window');
+
 
     let saleCards = document.querySelectorAll('.card.sale');
     if (saleCards.length == 1) {
@@ -26,6 +33,17 @@ window.addEventListener('DOMContentLoaded', () => {
     } else if (saleCards.length > 1) {
         saleCards.forEach(card => {
             setSaleInterval(card.dataset.expiryDate, card.dataset.goodId);
+        });
+    }
+    if (modals.length == 1) {
+        modals[0].querySelector('.modal-closer').addEventListener('click', () => {
+            modals[0].style.display = "none";
+        });
+    } else if (modals.length > 1) {
+        modals.forEach(modal => {
+            modal.querySelector('.modal-closer').addEventListener('click', () => {
+                modal.style.display = "none";
+            });
         });
     }
 

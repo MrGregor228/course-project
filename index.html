@@ -11,6 +11,29 @@
 </head>
 
 <body>
+    <!-- <div class="modal-window modal-likes"></div> -->
+    <div class="modal-window modal-likes">
+        <div class="modal-wrapper">
+            <div class="modal-heading">
+                <h4>Избранное</h4><button class="modal-closer">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="flex-container">
+                    <div class="flex-card-item">
+                        <div class="flex-image">
+                            <img src="images/Lenovo.jpg" alt="Lenovo">
+                        </div>
+                        <div class="flex-decsription">
+                            <p>Ноутбук Lenovo IdeaPad S145-15AST</p>
+                            <a href="#" class="unlike-item">
+                                &times;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <header class="header">
         <nav class="navigation-panel">
             <div class="brand">
@@ -23,7 +46,7 @@
                 <li><a href="#">Оплата и доставка</a></li>
                 <li><a href="#">Каталог</a></li>
                 <li><a href="#">Акции</a></li>
-                <li><a href="#"><img width="25" src="icons/heart.svg" alt=""></a></li>
+                <li><a href="#" id="toggle-like-modal"><img width="25" src="icons/heart.svg" alt=""></a></li>
                 <li><a href="#"><img width="25" src="icons/shopping-cart.svg" alt=""></a></li>
             </ul>
         </nav>
@@ -241,7 +264,7 @@
         <section class="for-sale">
             <h2>Акционные предложения</h2>
             <div class="cards-container">
-                <div class="card sale" data-good-id="15" data-expiry-date="2021-05-10 00:00:00">
+                <div class="card sale" data-good-id="15" data-expiry-date="2021-05-14 00:00:00">
                     <div class="card-image">
                         <img src="images/Lenovo.jpg" alt="">
                         <div class="like">
