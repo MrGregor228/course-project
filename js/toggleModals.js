@@ -1,15 +1,50 @@
 const button_LikeModal = document.getElementById('toggle-like-modal');
 let like_buttons = document.querySelectorAll('div.like');
+let likesModal = document.querySelector('.modal-window.modal-likes');
+let likesModalItemsContainer = likesModal.querySelector('.flex-container');
 const liked_cards = [];
-
-button_LikeModal.addEventListener('click', () => {
-    if (document.querySelector('.modal-likes').style.display == "none") {
-        document.querySelector('.modal-likes').style.display = "flex";
+likesModal.style.display = "none";
+button_LikeModal.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (likesModal.style.display == "none") {
+        likesModal.style.display = "flex";
     } else {
-        document.querySelector('.modal-likes').style.display == "none";
+        likesModal.style.display = "none";
     }
 });
 
+function countLikedGoods() {
+    document.getElementById('likes-counter').textContent = likesModalItemsContainer.querySelectorAll('.flex-card-item').length;
+}
+countLikedGoods();
+function unlike() {
+    if (document.querySelectorAll('.unlike-item').length == 1) {
+        document.querySelector('.unlike-item').addEventListener('click', (e) => {
+            e.preventDefault();            
+            liked_cards.filter((card,i) => {
+                if (card.dataID == document.querySelector('.unlike-item').dataset.dataGoodId) {
+                    liked_cards.splice(i,1);
+                    likesModalItemsContainer.querySelector(`[data-good-id="${card.dataID}"]`).remove();
+                    countLikedGoods();
+                }
+            });
+        });
+    } else {
+        document.querySelectorAll('.unlike-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();            
+                liked_cards.filter((card,i) => {
+                    if (card.dataID == item.dataset.dataGoodId) {
+                        liked_cards.splice(i,1);
+                        likesModalItemsContainer.querySelector(`[data-good-id="${card.dataID}"]`).remove();
+                        countLikedGoods();
+                    }
+                });
+            });
+        });
+    }
+}
+unlike();
 like_buttons.forEach(button => {
     button.addEventListener('click', (e) => {
         let target = e.target;
@@ -19,11 +54,28 @@ like_buttons.forEach(button => {
             button.querySelector('img').src = 'icons/heart-selected.svg';
             let card = {
                 dataID: closestDatasetCard,
-                liked: target.closest('.card').dataset.liked
+                liked: target.closest('.card').dataset.liked,
+                imgSRC: target.closest('.card').querySelector('.card-image > img').src,
+                imgALT: target.closest('.card').querySelector('.card-image > img').alt,
+                description: target.closest('.card').querySelector('.card-heading').textContent
             };
+            console.log(card.imgALT);
             liked_cards.push(card);
-
-            
+            likesModalItemsContainer.insertAdjacentHTML('afterbegin', `
+                <div class="flex-card-item" data-good-id="${card.dataID}">
+                    <div class="flex-image">
+                        <img src="${card.imgSRC}" alt="${card.imgALT}">
+                    </div>
+                    <div class="flex-decsription">
+                        <p>${card.description}</p>
+                        <a href="#" class="unlike-item">
+                            &times;
+                        </a>
+                    </div>
+                </div>
+            `);         
+            unlike();   
+            countLikedGoods();
         } else {
             let card = {
                 dataID: closestDatasetCard,
@@ -32,10 +84,13 @@ like_buttons.forEach(button => {
             liked_cards.filter((card,i) => {
                 if (card.dataID == closestDatasetCard) {
                     liked_cards.splice(i,1);
+                    likesModalItemsContainer.querySelector(`[data-good-id="${card.dataID}"]`).remove();
                 }
             });
             delete target.closest('.card').dataset.liked;
             button.querySelector('img').src = 'icons/card-heart.svg';
+            unlike();
+            countLikedGoods();
         }
     });
 });

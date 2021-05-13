@@ -44,14 +44,20 @@ footer .footer-content-wrapper .footer-column h6 {
 footer .footer-content-wrapper .footer-column ul {
   margin-top: 15px;
 }
-/* line 44, ../scss/footer.scss */
+/* line 42, ../scss/footer.scss */
+footer .footer-content-wrapper .footer-column ul li {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+/* line 49, ../scss/footer.scss */
 footer .footer-content-wrapper .last-column {
   width: 100%;
   text-align: center;
   padding: 10px 0;
   color: white;
 }
-/* line 49, ../scss/footer.scss */
+/* line 54, ../scss/footer.scss */
 footer .footer-content-wrapper .last-column hr {
   border: none;
   box-shadow: none;

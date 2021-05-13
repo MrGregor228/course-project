@@ -39,6 +39,11 @@ footer {
             }
             ul {
                 margin-top: 15px;
+                li {
+                    display: flex;
+                    align-items: center;
+                    margin-top: 5px;
+                }
             }
         }
         .last-column {

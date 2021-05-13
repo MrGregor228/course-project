@@ -1,4 +1,4 @@
-/* line 7, ../scss/header.scss */
+/* line 9, ../scss/header.scss */
 .modal-window {
   font-family: sans-serif;
   position: fixed;
@@ -8,11 +8,11 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 1000;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
 }
-/* line 19, ../scss/header.scss */
+/* line 22, ../scss/header.scss */
 .modal-window .modal-wrapper {
   background-color: #fff;
   border-radius: 5px;
@@ -25,7 +25,7 @@
   flex-direction: column;
   overflow: hidden;
 }
-/* line 30, ../scss/header.scss */
+/* line 34, ../scss/header.scss */
 .modal-window .modal-wrapper .modal-closer, .modal-window .modal-wrapper .modal-body .flex-container .flex-card-item .flex-decsription .unlike-item {
   font-size: 25px;
   font-weight: bold;
@@ -34,7 +34,7 @@
   color: #533f81;
   border-radius: 30px;
 }
-/* line 38, ../scss/header.scss */
+/* line 43, ../scss/header.scss */
 .modal-window .modal-wrapper .modal-heading {
   display: flex;
   justify-content: space-between;
@@ -43,28 +43,32 @@
   background-color: #533f81;
   color: white;
 }
-/* line 46, ../scss/header.scss */
+/* line 52, ../scss/header.scss */
 .modal-window .modal-wrapper .modal-body {
   background-color: #fff;
-  padding: 10px 15px;
+  padding: 15px;
 }
-/* line 49, ../scss/header.scss */
+/* line 56, ../scss/header.scss */
 .modal-window .modal-wrapper .modal-body .flex-container {
   display: flex;
   flex-direction: column;
 }
-/* line 52, ../scss/header.scss */
+/* line 60, ../scss/header.scss */
 .modal-window .modal-wrapper .modal-body .flex-container .flex-card-item {
   display: flex;
   box-shadow: 0 0 0 1px lightgray;
   padding: 15px;
   border-radius: 8px;
 }
-/* line 57, ../scss/header.scss */
+/* line 65, ../scss/header.scss */
+.modal-window .modal-wrapper .modal-body .flex-container .flex-card-item:not(:first-child) {
+  margin-top: 15px;
+}
+/* line 68, ../scss/header.scss */
 .modal-window .modal-wrapper .modal-body .flex-container .flex-card-item .flex-image {
   max-width: 90px;
 }
-/* line 59, ../scss/header.scss */
+/* line 71, ../scss/header.scss */
 .modal-window .modal-wrapper .modal-body .flex-container .flex-card-item .flex-image img {
   max-width: 100%;
   max-height: 100%;
@@ -73,7 +77,7 @@
   -o-object-fit: contain;
   object-fit: contain;
 }
-/* line 68, ../scss/header.scss */
+/* line 81, ../scss/header.scss */
 .modal-window .modal-wrapper .modal-body .flex-container .flex-card-item .flex-decsription {
   display: flex;
   justify-content: space-between;
@@ -81,12 +85,12 @@
   align-items: center;
   font-weight: bold;
 }
-/* line 74, ../scss/header.scss */
+/* line 88, ../scss/header.scss */
 .modal-window .modal-wrapper .modal-body .flex-container .flex-card-item .flex-decsription p {
   padding: 0 15px 0 15px;
   line-height: 1.5;
 }
-/* line 78, ../scss/header.scss */
+/* line 93, ../scss/header.scss */
 .modal-window .modal-wrapper .modal-body .flex-container .flex-card-item .flex-decsription .unlike-item {
   background-color: #533f81;
   color: white;
@@ -95,7 +99,7 @@
   padding: 6px 10px;
 }
 
-/* line 95, ../scss/header.scss */
+/* line 110, ../scss/header.scss */
 header {
   position: fixed;
   max-width: 1440px;
@@ -110,14 +114,31 @@ header {
   max-width: 100%;
   box-shadow: 4px 7px 29px rgba(0, 0, 0, 0.51);
 }
-/* line 108, ../scss/header.scss */
+/* line 124, ../scss/header.scss */
+header #toggle-like-modal, header #toggle-cart-modal {
+  position: relative;
+  display: block;
+}
+/* line 127, ../scss/header.scss */
+header #toggle-like-modal span, header #toggle-cart-modal span {
+  background-color: #533f81;
+  font-size: 8px;
+  font-weight: bold;
+  padding: 3px 5px;
+  position: absolute;
+  top: -3px;
+  right: -4px;
+  border-radius: 30px;
+  color: white;
+}
+/* line 143, ../scss/header.scss */
 header .navigation-panel {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 @media screen and (max-width: 800px) {
-  /* line 108, ../scss/header.scss */
+  /* line 143, ../scss/header.scss */
   header .navigation-panel {
     flex-direction: column;
     justify-content: flex-start;
@@ -125,20 +146,20 @@ header .navigation-panel {
   }
 }
 @media screen and (max-width: 800px) and (max-width: 400px) {
-  /* line 108, ../scss/header.scss */
+  /* line 143, ../scss/header.scss */
   header .navigation-panel {
     padding-top: 0px;
   }
 }
 
-/* line 120, ../scss/header.scss */
+/* line 158, ../scss/header.scss */
 header .navigation-panel .brand {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 5px;
 }
-/* line 125, ../scss/header.scss */
+/* line 164, ../scss/header.scss */
 header .navigation-panel .brand h2 {
   position: relative;
   top: 3px;
@@ -146,11 +167,11 @@ header .navigation-panel .brand h2 {
   font-weight: bolder;
   color: #939393;
 }
-/* line 131, ../scss/header.scss */
+/* line 171, ../scss/header.scss */
 header .navigation-panel .brand h2 span {
   color: #533f81;
 }
-/* line 135, ../scss/header.scss */
+/* line 176, ../scss/header.scss */
 header .navigation-panel .brand button {
   display: none;
   padding: 3px 10px;
@@ -163,24 +184,23 @@ header .navigation-panel .brand button {
   background-color: #fff;
   transition: .1s linear;
 }
-/* line 146, ../scss/header.scss */
+/* line 188, ../scss/header.scss */
 header .navigation-panel .brand button:active {
   background-color: #f2f2f2;
 }
-/* line 149, ../scss/header.scss */
+/* line 192, ../scss/header.scss */
 header .navigation-panel .brand button img {
   width: 1em;
   height: .875em;
 }
 @media screen and (max-width: 800px) {
-  /* line 135, ../scss/header.scss */
+  /* line 176, ../scss/header.scss */
   header .navigation-panel .brand button {
     display: block;
   }
 }
-/* line 158, ../scss/header.scss */
+/* line 203, ../scss/header.scss */
 header .navigation-panel ul {
-  overflow: hidden;
   max-width: 700px;
   height: -webkit-max-content;
   height: -moz-max-content;
@@ -191,19 +211,20 @@ header .navigation-panel ul {
   align-items: center;
   transition: height .2s linear;
 }
-/* line 169, ../scss/header.scss */
+/* line 215, ../scss/header.scss */
 header .navigation-panel ul.show {
   height: 207px;
 }
 @media screen and (max-width: 1260px) {
-  /* line 158, ../scss/header.scss */
+  /* line 203, ../scss/header.scss */
   header .navigation-panel ul {
     max-width: 600px;
   }
 }
 @media screen and (max-width: 1260px) and (max-width: 800px) {
-  /* line 158, ../scss/header.scss */
+  /* line 203, ../scss/header.scss */
   header .navigation-panel ul {
+    overflow: hidden;
     height: 0px;
     max-width: 320px;
     flex-direction: column;
@@ -211,7 +232,7 @@ header .navigation-panel ul.show {
   }
 }
 
-/* line 182, ../scss/header.scss */
+/* line 231, ../scss/header.scss */
 header .navigation-panel ul li {
   font-size: 16px;
   max-width: -webkit-max-content;
@@ -220,22 +241,22 @@ header .navigation-panel ul li {
   line-height: 1.25;
 }
 @media screen and (max-width: 800px) {
-  /* line 182, ../scss/header.scss */
+  /* line 231, ../scss/header.scss */
   header .navigation-panel ul li {
     line-height: 1.5;
   }
 }
-/* line 191, ../scss/header.scss */
+/* line 242, ../scss/header.scss */
 header .navigation-panel ul li:nth-last-child(-n+2) a:after {
   content: "";
   display: none;
 }
-/* line 195, ../scss/header.scss */
+/* line 247, ../scss/header.scss */
 header .navigation-panel ul li a {
   color: black;
   text-decoration: none;
 }
-/* line 199, ../scss/header.scss */
+/* line 251, ../scss/header.scss */
 header .navigation-panel ul li a:after {
   content: "";
   display: block;
@@ -246,7 +267,7 @@ header .navigation-panel ul li a:after {
   margin-left: auto;
   transition: width .2s ease-out;
 }
-/* line 209, ../scss/header.scss */
+/* line 262, ../scss/header.scss */
 header .navigation-panel ul li a:hover:after, header .navigation-panel ul li a:focus:after {
   width: 100%;
 }
