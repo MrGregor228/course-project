@@ -65,7 +65,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 });
-
+let nowYear = document.getElementById('nowYear').textContent =  new Date().getFullYear();
 // Swiper Slider config
 (function () {
     const mySwiper = new Swiper('.swiper-container', {

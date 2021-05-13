@@ -21,6 +21,12 @@ footer {
             color:white;
             line-height: 1.5;
             padding: 15px;
+            @media screen and (max-width:800px) {
+                max-width: calc(50% - 30px);
+            }
+            @media screen and (max-width:500px) {
+                max-width:100%;
+            }
             &:nth-child(3) {
                 ul {
                     display: flex;

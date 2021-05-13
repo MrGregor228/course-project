@@ -33,11 +33,37 @@ $orange: #ff9d00;
         border-radius: 3px;
     }
 }
-
+.watch-more {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    max-width: 145px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 15px;
+    background-color: $violet;
+    font-weight: bold;
+    color:white;
+    svg {
+        max-width: 10px;
+        margin-left: 9px;
+    }
+}
 .cards-container {
     display: flex;
     max-width: 1440px;
-
+    padding-right: 7.5px;
+    padding-left: 7.5px;
+    padding-top: 25px;
+    @media screen and (max-width:800px) {
+        justify-content: center;
+    }
+    @media screen and (max-width:500px) {
+        flex-wrap: wrap;
+    }
+   
     .card {
         display: flex;
         flex-direction: column;
@@ -45,7 +71,7 @@ $orange: #ff9d00;
         width: 100%;
         box-shadow: 0 0 0 1px lightgray;
         border-radius: 10px;
-        margin: 15px;
+        margin: 7.5px;
         position: relative;
         overflow: hidden;
         &:hover {

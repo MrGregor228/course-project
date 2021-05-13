@@ -22,42 +22,54 @@ footer .footer-content-wrapper .footer-column {
   line-height: 1.5;
   padding: 15px;
 }
-/* line 25, ../scss/footer.scss */
+@media screen and (max-width: 800px) {
+  /* line 18, ../scss/footer.scss */
+  footer .footer-content-wrapper .footer-column {
+    max-width: calc(50% - 30px);
+  }
+}
+@media screen and (max-width: 500px) {
+  /* line 18, ../scss/footer.scss */
+  footer .footer-content-wrapper .footer-column {
+    max-width: 100%;
+  }
+}
+/* line 31, ../scss/footer.scss */
 footer .footer-content-wrapper .footer-column:nth-child(3) ul {
   display: flex;
 }
-/* line 27, ../scss/footer.scss */
+/* line 33, ../scss/footer.scss */
 footer .footer-content-wrapper .footer-column:nth-child(3) ul li:last-child {
   margin-left: 15px;
 }
-/* line 32, ../scss/footer.scss */
+/* line 38, ../scss/footer.scss */
 footer .footer-content-wrapper .footer-column a {
   color: lightgray;
   text-decoration: none;
 }
-/* line 36, ../scss/footer.scss */
+/* line 42, ../scss/footer.scss */
 footer .footer-content-wrapper .footer-column h6 {
   font-size: 1.5rem;
   font-weight: 500;
 }
-/* line 40, ../scss/footer.scss */
+/* line 46, ../scss/footer.scss */
 footer .footer-content-wrapper .footer-column ul {
   margin-top: 15px;
 }
-/* line 42, ../scss/footer.scss */
+/* line 48, ../scss/footer.scss */
 footer .footer-content-wrapper .footer-column ul li {
   display: flex;
   align-items: center;
   margin-top: 5px;
 }
-/* line 49, ../scss/footer.scss */
+/* line 55, ../scss/footer.scss */
 footer .footer-content-wrapper .last-column {
   width: 100%;
   text-align: center;
   padding: 10px 0;
   color: white;
 }
-/* line 54, ../scss/footer.scss */
+/* line 60, ../scss/footer.scss */
 footer .footer-content-wrapper .last-column hr {
   border: none;
   box-shadow: none;
