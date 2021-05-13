@@ -15,31 +15,47 @@ button_LikeModal.addEventListener('click', (e) => {
 
 function countLikedGoods() {
     document.getElementById('likes-counter').textContent = likesModalItemsContainer.querySelectorAll('.flex-card-item').length;
+    if (likesModalItemsContainer.querySelectorAll('.flex-card-item').length == 0) {
+        likesModal.querySelector('.empty-container').style.display = 'flex';
+    } else {
+        likesModal.querySelector('.empty-container').style.display = 'none';
+    }
 }
 countLikedGoods();
+
 function unlike() {
     if (document.querySelectorAll('.unlike-item').length == 1) {
         document.querySelector('.unlike-item').addEventListener('click', (e) => {
-            e.preventDefault();            
-            liked_cards.filter((card,i) => {
-                if (card.dataID == document.querySelector('.unlike-item').dataset.dataGoodId) {
-                    liked_cards.splice(i,1);
+            e.preventDefault();
+            let target = e.target;
+            let closestCard = target.closest('.flex-card-item');
+
+            liked_cards.filter((card, i) => {
+                if (card.dataID == closestCard.dataset.goodId) {
+                    liked_cards.splice(i, 1);
                     likesModalItemsContainer.querySelector(`[data-good-id="${card.dataID}"]`).remove();
+                    document.querySelector(`.card[data-good-id="${card.dataID}"] .like > span > img`).src = "icons/card-heart.svg";
                     countLikedGoods();
                 }
             });
+            console.log(liked_cards);
         });
     } else {
         document.querySelectorAll('.unlike-item').forEach(item => {
             item.addEventListener('click', (e) => {
-                e.preventDefault();            
-                liked_cards.filter((card,i) => {
-                    if (card.dataID == item.dataset.dataGoodId) {
-                        liked_cards.splice(i,1);
+                e.preventDefault();
+                let target = e.target;
+                let closestCard = target.closest('.flex-card-item');
+
+                liked_cards.filter((card, i) => {
+                    if (card.dataID == closestCard.dataset.goodId) {
+                        liked_cards.splice(i, 1);
                         likesModalItemsContainer.querySelector(`[data-good-id="${card.dataID}"]`).remove();
+                        document.querySelector(`.card[data-good-id="${card.dataID}"] .like > span > img`).src = "icons/card-heart.svg";
                         countLikedGoods();
                     }
                 });
+                console.log(liked_cards);
             });
         });
     }
@@ -73,17 +89,17 @@ like_buttons.forEach(button => {
                         </a>
                     </div>
                 </div>
-            `);         
-            unlike();   
+            `);
+            unlike();
             countLikedGoods();
         } else {
             let card = {
                 dataID: closestDatasetCard,
                 liked: target.closest('.card').dataset.liked
             };
-            liked_cards.filter((card,i) => {
+            liked_cards.filter((card, i) => {
                 if (card.dataID == closestDatasetCard) {
-                    liked_cards.splice(i,1);
+                    liked_cards.splice(i, 1);
                     likesModalItemsContainer.querySelector(`[data-good-id="${card.dataID}"]`).remove();
                 }
             });

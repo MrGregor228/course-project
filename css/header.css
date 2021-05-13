@@ -53,22 +53,46 @@
   display: flex;
   flex-direction: column;
 }
-/* line 60, ../scss/header.scss */
+/* line 59, ../scss/header.scss */
+.modal-window .modal-wrapper .modal-body .flex-container .empty-container {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-height: 250px;
+  flex-direction: column;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+/* line 71, ../scss/header.scss */
+.modal-window .modal-wrapper .modal-body .flex-container .empty-container img {
+  margin-bottom: 15px;
+  max-width: 150px;
+  opacity: .7;
+}
+/* line 76, ../scss/header.scss */
+.modal-window .modal-wrapper .modal-body .flex-container .empty-container p {
+  font-weight: bold;
+  color: gray;
+}
+/* line 81, ../scss/header.scss */
 .modal-window .modal-wrapper .modal-body .flex-container .flex-card-item {
   display: flex;
   box-shadow: 0 0 0 1px lightgray;
   padding: 15px;
   border-radius: 8px;
 }
-/* line 65, ../scss/header.scss */
+/* line 86, ../scss/header.scss */
 .modal-window .modal-wrapper .modal-body .flex-container .flex-card-item:not(:first-child) {
   margin-top: 15px;
 }
-/* line 68, ../scss/header.scss */
+/* line 89, ../scss/header.scss */
 .modal-window .modal-wrapper .modal-body .flex-container .flex-card-item .flex-image {
   max-width: 90px;
 }
-/* line 71, ../scss/header.scss */
+/* line 92, ../scss/header.scss */
 .modal-window .modal-wrapper .modal-body .flex-container .flex-card-item .flex-image img {
   max-width: 100%;
   max-height: 100%;
@@ -77,7 +101,7 @@
   -o-object-fit: contain;
   object-fit: contain;
 }
-/* line 81, ../scss/header.scss */
+/* line 102, ../scss/header.scss */
 .modal-window .modal-wrapper .modal-body .flex-container .flex-card-item .flex-decsription {
   display: flex;
   justify-content: space-between;
@@ -85,12 +109,12 @@
   align-items: center;
   font-weight: bold;
 }
-/* line 88, ../scss/header.scss */
+/* line 109, ../scss/header.scss */
 .modal-window .modal-wrapper .modal-body .flex-container .flex-card-item .flex-decsription p {
   padding: 0 15px 0 15px;
   line-height: 1.5;
 }
-/* line 93, ../scss/header.scss */
+/* line 114, ../scss/header.scss */
 .modal-window .modal-wrapper .modal-body .flex-container .flex-card-item .flex-decsription .unlike-item {
   background-color: #533f81;
   color: white;
@@ -99,7 +123,7 @@
   padding: 6px 10px;
 }
 
-/* line 110, ../scss/header.scss */
+/* line 131, ../scss/header.scss */
 header {
   position: fixed;
   max-width: 1440px;
@@ -114,12 +138,12 @@ header {
   max-width: 100%;
   box-shadow: 4px 7px 29px rgba(0, 0, 0, 0.51);
 }
-/* line 124, ../scss/header.scss */
+/* line 145, ../scss/header.scss */
 header #toggle-like-modal, header #toggle-cart-modal {
   position: relative;
   display: block;
 }
-/* line 127, ../scss/header.scss */
+/* line 148, ../scss/header.scss */
 header #toggle-like-modal span, header #toggle-cart-modal span {
   background-color: #533f81;
   font-size: 8px;
@@ -131,14 +155,14 @@ header #toggle-like-modal span, header #toggle-cart-modal span {
   border-radius: 30px;
   color: white;
 }
-/* line 143, ../scss/header.scss */
+/* line 164, ../scss/header.scss */
 header .navigation-panel {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 @media screen and (max-width: 800px) {
-  /* line 143, ../scss/header.scss */
+  /* line 164, ../scss/header.scss */
   header .navigation-panel {
     flex-direction: column;
     justify-content: flex-start;
@@ -146,20 +170,20 @@ header .navigation-panel {
   }
 }
 @media screen and (max-width: 800px) and (max-width: 400px) {
-  /* line 143, ../scss/header.scss */
+  /* line 164, ../scss/header.scss */
   header .navigation-panel {
     padding-top: 0px;
   }
 }
 
-/* line 158, ../scss/header.scss */
+/* line 179, ../scss/header.scss */
 header .navigation-panel .brand {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 5px;
 }
-/* line 164, ../scss/header.scss */
+/* line 185, ../scss/header.scss */
 header .navigation-panel .brand h2 {
   position: relative;
   top: 3px;
@@ -167,11 +191,11 @@ header .navigation-panel .brand h2 {
   font-weight: bolder;
   color: #939393;
 }
-/* line 171, ../scss/header.scss */
+/* line 192, ../scss/header.scss */
 header .navigation-panel .brand h2 span {
   color: #533f81;
 }
-/* line 176, ../scss/header.scss */
+/* line 197, ../scss/header.scss */
 header .navigation-panel .brand button {
   display: none;
   padding: 3px 10px;
@@ -184,22 +208,22 @@ header .navigation-panel .brand button {
   background-color: #fff;
   transition: .1s linear;
 }
-/* line 188, ../scss/header.scss */
+/* line 209, ../scss/header.scss */
 header .navigation-panel .brand button:active {
   background-color: #f2f2f2;
 }
-/* line 192, ../scss/header.scss */
+/* line 213, ../scss/header.scss */
 header .navigation-panel .brand button img {
   width: 1em;
   height: .875em;
 }
 @media screen and (max-width: 800px) {
-  /* line 176, ../scss/header.scss */
+  /* line 197, ../scss/header.scss */
   header .navigation-panel .brand button {
     display: block;
   }
 }
-/* line 203, ../scss/header.scss */
+/* line 224, ../scss/header.scss */
 header .navigation-panel ul {
   max-width: 700px;
   height: -webkit-max-content;
@@ -211,18 +235,18 @@ header .navigation-panel ul {
   align-items: center;
   transition: height .2s linear;
 }
-/* line 215, ../scss/header.scss */
+/* line 236, ../scss/header.scss */
 header .navigation-panel ul.show {
   height: 207px;
 }
 @media screen and (max-width: 1260px) {
-  /* line 203, ../scss/header.scss */
+  /* line 224, ../scss/header.scss */
   header .navigation-panel ul {
     max-width: 600px;
   }
 }
 @media screen and (max-width: 1260px) and (max-width: 800px) {
-  /* line 203, ../scss/header.scss */
+  /* line 224, ../scss/header.scss */
   header .navigation-panel ul {
     overflow: hidden;
     height: 0px;
@@ -232,7 +256,7 @@ header .navigation-panel ul.show {
   }
 }
 
-/* line 231, ../scss/header.scss */
+/* line 252, ../scss/header.scss */
 header .navigation-panel ul li {
   font-size: 16px;
   max-width: -webkit-max-content;
@@ -241,22 +265,22 @@ header .navigation-panel ul li {
   line-height: 1.25;
 }
 @media screen and (max-width: 800px) {
-  /* line 231, ../scss/header.scss */
+  /* line 252, ../scss/header.scss */
   header .navigation-panel ul li {
     line-height: 1.5;
   }
 }
-/* line 242, ../scss/header.scss */
+/* line 263, ../scss/header.scss */
 header .navigation-panel ul li:nth-last-child(-n+2) a:after {
   content: "";
   display: none;
 }
-/* line 247, ../scss/header.scss */
+/* line 268, ../scss/header.scss */
 header .navigation-panel ul li a {
   color: black;
   text-decoration: none;
 }
-/* line 251, ../scss/header.scss */
+/* line 272, ../scss/header.scss */
 header .navigation-panel ul li a:after {
   content: "";
   display: block;
@@ -267,7 +291,7 @@ header .navigation-panel ul li a:after {
   margin-left: auto;
   transition: width .2s ease-out;
 }
-/* line 262, ../scss/header.scss */
+/* line 283, ../scss/header.scss */
 header .navigation-panel ul li a:hover:after, header .navigation-panel ul li a:focus:after {
   width: 100%;
 }

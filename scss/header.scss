@@ -56,7 +56,28 @@ $orange: #ff9d00;
 			.flex-container {
 				display: flex;
 				flex-direction: column;
-
+				.empty-container {
+					display: none;
+					align-items: center;
+					justify-content: center;
+					min-height: 250px;
+					flex-direction: column;
+					-webkit-user-select: none;
+					   -moz-user-select: none;
+					    -ms-user-select: none;
+					        user-select: none;
+					pointer-events: none;
+					
+					img {
+						margin-bottom: 15px;
+						max-width: 150px;
+						opacity: .7;
+					}
+					p {
+						font-weight: bold;
+						color:gray;
+					}
+				}
 				.flex-card-item {
 					display: flex;
 					@include boxShadowOutline;
