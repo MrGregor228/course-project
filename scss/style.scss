@@ -3,12 +3,38 @@
 @import "./footer.scss";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
 
+* {
+    box-sizing: border-box;
+}
+
 $violet: #533f81;
 $blue: #2988ce;
 $orange: #ff9d00;
 
 @mixin boxShadowOutline {
     box-shadow: 0 0 0 1px lightgray;
+}
+
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
+    &::-webkit-scrollbar {
+        width: $size;
+        height: $size;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $foreground-color;
+        border-radius: 30px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $background-color;
+        border-radius: 30px;
+    }
+
+    & {
+        scrollbar-face-color: $foreground-color;
+        scrollbar-track-color: $background-color;
+    }
 }
 
 :root {
@@ -33,172 +59,204 @@ $orange: #ff9d00;
         border-radius: 3px;
     }
 }
+
 .watch-more {
     margin-top: 25px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     text-decoration: none;
-    max-width: 145px;
+    max-width: 170px;
     margin-right: auto;
     margin-left: auto;
     padding: 15px;
     background-color: $violet;
     font-weight: bold;
-    color:white;
+    color: white;
+
     svg {
         max-width: 10px;
         margin-left: 9px;
     }
 }
-.cards-container {
-    display: flex;
+
+.cards-container {   
+    position: relative;
     max-width: 1440px;
-    padding-right: 7.5px;
-    padding-left: 7.5px;
-    padding-top: 25px;
-    @media screen and (max-width:800px) {
-        justify-content: center;
-    }
-    @media screen and (max-width:500px) {
-        flex-wrap: wrap;
-    }
-   
-    .card {
+    overflow: hidden;
+    &.scrolling {
+        overflow-x: scroll;
+        @include scrollbars(7px, rgba($violet, .7), lightgray);
+        box-shadow: inset -18px 0 9px -12px rgba(lightgray, .7);
+    } 
+
+    .cards-wrapper {
         display: flex;
-        flex-direction: column;
-        max-width: 250px;
-        width: 100%;
-        box-shadow: 0 0 0 1px lightgray;
-        border-radius: 10px;
-        margin: 7.5px;
-        position: relative;
-        overflow: hidden;
-        &:hover {
-            .card-body .card-prices .good-link {
-                opacity: 1;
-            }
-        }
-        &.sale {
-            &:before {
-                content: "Sale";
-                display: block;
-                background: red;
-                height: 30px;
-                position: absolute;
-                z-index: 10;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-                color:white;
-                font-weight: bold;
-                font-size: .85rem;
-                transform: rotate(-40deg);
-                left: -35%;
-                top: 7%;
-            }
+        padding-right: 7.5px;
+        padding-left: 7.5px;
+        padding-top: 25px;
+        min-width: -webkit-max-content;
+        min-width: -moz-max-content;
+        min-width: max-content;
+        @media screen and (max-width:800px) {
+            justify-content: center;
         }
 
-        .card-image {
-            max-height: 137px;
-            padding: 15px;
-            position: relative;
-            img {
-                max-width: 100%;
-                height: 100%;
-                -o-object-fit: contain;
-                object-fit: contain;
-                margin-right: auto;
-                margin-left: auto;
-                display: block;
-            }
-            .like {
-                position: absolute;
-                right: 15px;
-                top: 15px;
-                background-color: $violet;
-                padding: 7px;
-                border-radius: 50%;
-                cursor: pointer;       
-            }
-            .top-ribbon {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                background-color: $violet;
-                padding: 5px 10px;
-                max-width: 80px;
-                text-align: center;
-                width: 100%;
-                color:white;
-                font-weight: bold;
-            }
-            
+        @media screen and (max-width:500px) {
+            flex-wrap: wrap;
         }
-        .card-body {
-            padding: 15px;
-            line-height: 1.3;
-            .card-heading {
-                font-weight: 500;
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            max-width: 250px;
+            width: 100%;
+            box-shadow: 0 0 0 1px lightgray;
+            border-radius: 10px;
+            margin: 7.5px;
+            position: relative;
+            overflow: hidden;
+
+            &:hover {
+                .card-body .card-prices .good-link {
+                    opacity: 1;
+                }
             }
-            .sale-container {
-                font-weight: bold;
-                font-size: 12px;
-                color: red;
-                background-color: rgba(red,.25);
-                padding: 7px 10px;
-                border-radius: 4px;
-            }
-            .card-prices {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                &:nth-of-type(1) {
-                    margin-top: 5px;
-                    margin-bottom: 15px;
-                }
-                
-                .gray-price, .violet-price {
-                    &:after {
-                        content: "\20B4";
-                    }
-                }
-                
-                .gray-price {
-                    color:gray;
-                    font-weight: 500;
-                    font-size: 0.9rem;
-                    text-decoration: line-through;
-                }
-                .violet-price {
-                    font-size: 1.25rem;
+
+            &.sale {
+                &:before {
+                    content: "Sale";
+                    display: block;
+                    background: red;
+                    height: 30px;
+                    position: absolute;
+                    z-index: 10;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    color: white;
                     font-weight: bold;
-                    color:$violet;
+                    font-size: .85rem;
+                    transform: rotate(-40deg);
+                    left: -35%;
+                    top: 7%;
                 }
-                .card-raiting {
-                    background-color: $violet;
-                    padding: 4px 7px;
-                    border-radius: 4px;
-                    span {
-                        font-size: 0.9rem;
-                        font-weight: bold;
-                        color:white;
-                    }                    
-                }
-                .good-link {
-                    width: 47px;
-                    opacity: 0;
-                    transition: opacity .15s linear;
-                    
-                    svg {
-                        display: block;
-                        margin-left: auto;
-                        fill:$violet;
-                    }
-                }                
             }
-            
+
+            .card-image {
+                max-height: 137px;
+                padding: 15px;
+                position: relative;
+
+                img {
+                    max-width: 100%;
+                    height: 100%;
+                    -o-object-fit: contain;
+                    object-fit: contain;
+                    margin-right: auto;
+                    margin-left: auto;
+                    display: block;
+                }
+
+                .like {
+                    position: absolute;
+                    right: 15px;
+                    top: 15px;
+                    background-color: $violet;
+                    padding: 7px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+
+                .top-ribbon {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    background-color: $violet;
+                    padding: 5px 10px;
+                    max-width: 80px;
+                    text-align: center;
+                    width: 100%;
+                    color: white;
+                    font-weight: bold;
+                }
+
+            }
+
+            .card-body {
+                padding: 15px;
+                line-height: 1.3;
+
+                .card-heading {
+                    font-weight: 500;
+                }
+
+                .sale-container {
+                    font-weight: bold;
+                    font-size: 12px;
+                    color: red;
+                    background-color: rgba(red, .25);
+                    padding: 7px 10px;
+                    border-radius: 4px;
+                }
+
+                .card-prices {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    &:nth-of-type(1) {
+                        margin-top: 5px;
+                        margin-bottom: 15px;
+                    }
+
+                    .gray-price,
+                    .violet-price {
+                        &:after {
+                            content: "\20B4";
+                        }
+                    }
+
+                    .gray-price {
+                        color: gray;
+                        font-weight: 500;
+                        font-size: 0.9rem;
+                        text-decoration: line-through;
+                    }
+
+                    .violet-price {
+                        font-size: 1.25rem;
+                        font-weight: bold;
+                        color: $violet;
+                    }
+
+                    .card-raiting {
+                        background-color: $violet;
+                        padding: 4px 7px;
+                        border-radius: 4px;
+
+                        span {
+                            font-size: 0.9rem;
+                            font-weight: bold;
+                            color: white;
+                        }
+                    }
+
+                    .good-link {
+                        width: 47px;
+                        opacity: 0;
+                        transition: opacity .15s linear;
+
+                        svg {
+                            display: block;
+                            margin-left: auto;
+                            fill: $violet;
+                        }
+                    }
+                }
+
+            }
         }
     }
 }
@@ -543,13 +601,16 @@ $orange: #ff9d00;
 .top-goods {
     margin-right: auto;
     margin-left: auto;
+
     h2 {
         margin-top: 25px;
         text-align: center;
     }
-    max-width: 1440px;    
+
+    max-width: 1440px;
 }
 
-.frequently-bought, .for-sale {
+.frequently-bought,
+.for-sale {
     @extend .top-goods;
 }

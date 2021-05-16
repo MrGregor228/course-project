@@ -1,12 +1,13 @@
 // Timer for sales
 function setSaleInterval(eventDate, cardID) {
     let eventTime = new Date(eventDate).getTime();
-    let currentTime = new Date().getTime(); 
+    let currentTime = new Date().getTime();
     let diffTime = eventTime - currentTime;
     let duration = moment.duration(diffTime);
     let interval = 1000;
+
     function addZeroToNumber(num) {
-        if(num <= 9) {
+        if (num <= 9) {
             return '0' + num;
         } else return num;
     }
@@ -24,8 +25,8 @@ function setSaleInterval(eventDate, cardID) {
 window.addEventListener('DOMContentLoaded', () => {
     let toggle_button = document.querySelector('.toggle-button'),
         menu = document.getElementById('menu'),
-        modals = document.querySelectorAll('.modal-window');
-
+        modals = document.querySelectorAll('.modal-window'),
+        cardContainers = document.querySelectorAll('.cards-container');  
 
     let saleCards = document.querySelectorAll('.card.sale');
     if (saleCards.length == 1) {
@@ -52,20 +53,36 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     this.addEventListener('resize', () => {
+        console.log("resized");
         if (this.document.body.clientWidth > 800) {
             menu.classList.remove('show');
         }
+       
+        cardContainers.forEach(cont => {
+            if (cont.querySelector('.cards-wrapper').clientWidth > cont.clientWidth) {
+                cont.classList.add('scrolling');
+            } else {
+                cont.classList.remove('scrolling');
+            }
+        });
+
     });
 
     this.addEventListener('DOMContentLoaded', () => {
         if (this.document.body.clientWidth > 800) {
-            menu.classList.remove('show');
-        }
+            menu.classList.remove('show');            
+        } 
+        cardContainers.forEach(cont => {
+            if (cont.querySelector('.cards-wrapper').clientWidth > cont.clientWidth) {
+                cont.classList.add('scrolling');
+            } else {
+                cont.classList.remove('scrolling');
+            }
+        });   
     });
 
-
 });
-let nowYear = document.getElementById('nowYear').textContent =  new Date().getFullYear();
+let nowYear = document.getElementById('nowYear').textContent = new Date().getFullYear();
 // Swiper Slider config
 (function () {
     const mySwiper = new Swiper('.swiper-container', {

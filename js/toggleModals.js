@@ -3,6 +3,7 @@ let like_buttons = document.querySelectorAll('div.like');
 let likesModal = document.querySelector('.modal-window.modal-likes');
 let likesModalItemsContainer = likesModal.querySelector('.flex-container');
 const liked_cards = [];
+
 likesModal.style.display = "none";
 button_LikeModal.addEventListener('click', (e) => {
     e.preventDefault();
@@ -35,10 +36,12 @@ function unlike() {
                     liked_cards.splice(i, 1);
                     likesModalItemsContainer.querySelector(`[data-good-id="${card.dataID}"]`).remove();
                     document.querySelector(`.card[data-good-id="${card.dataID}"] .like > span > img`).src = "icons/card-heart.svg";
+
+                    // Some AJAX function () {}
+
                     countLikedGoods();
                 }
             });
-            console.log(liked_cards);
         });
     } else {
         document.querySelectorAll('.unlike-item').forEach(item => {
@@ -52,10 +55,12 @@ function unlike() {
                         liked_cards.splice(i, 1);
                         likesModalItemsContainer.querySelector(`[data-good-id="${card.dataID}"]`).remove();
                         document.querySelector(`.card[data-good-id="${card.dataID}"] .like > span > img`).src = "icons/card-heart.svg";
+
+                        // Some AJAX function () {}
+
                         countLikedGoods();
                     }
                 });
-                console.log(liked_cards);
             });
         });
     }
@@ -90,6 +95,9 @@ like_buttons.forEach(button => {
                     </div>
                 </div>
             `);
+
+            // Some AJAX function () {}
+
             unlike();
             countLikedGoods();
         } else {
@@ -97,6 +105,9 @@ like_buttons.forEach(button => {
                 dataID: closestDatasetCard,
                 liked: target.closest('.card').dataset.liked
             };
+
+            // Some AJAX function () {}
+
             liked_cards.filter((card, i) => {
                 if (card.dataID == closestDatasetCard) {
                     liked_cards.splice(i, 1);
