@@ -1,3 +1,14 @@
+<?php
+require_once "db/product.php";
+require_once "db/interface.php";
+$items = header_menu();
+$products = output_tools();
+$icons = header_icon();
+$sliders = page_slider();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -51,17 +62,7 @@
                 <h2>Mega<span>Shop</span></h2><button class="toggle-button"><img src="icons/bars.svg"
                         alt="Toggle button bars icon"></button>
             </div>
-            <ul id="menu">
-                <li><a href="#">О нас</a></li>
-                <li><a href="#">Контакты</a></li>
-                <li><a href="#">Оплата и доставка</a></li>
-                <li><a href="#">Каталог</a></li>
-                <li><a href="#">Акции</a></li>
-                <li><a href="#" id="toggle-like-modal"><img width="25" src="icons/heart.svg" alt=""><span
-                            id="likes-counter">0</span></a></li>
-                <li><a href="#" id="toggle-cart-modal"><img width="25" src="icons/shopping-cart.svg" alt=""><span
-                            id="goods-counter">0</span></a></li>
-            </ul>
+       
         </nav>
     </header>
     <main>
