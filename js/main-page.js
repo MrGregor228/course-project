@@ -25,7 +25,6 @@ function setSaleInterval(eventDate, cardID) {
 window.addEventListener('DOMContentLoaded', () => {
     let toggle_button = document.querySelector('.toggle-button'),
         menu = document.getElementById('menu'),
-        modals = document.querySelectorAll('.modal-window'),
         cardContainers = document.querySelectorAll('.cards-container');  
 
     let saleCards = document.querySelectorAll('.card.sale');
@@ -36,6 +35,7 @@ window.addEventListener('DOMContentLoaded', () => {
             setSaleInterval(card.dataset.expiryDate, card.dataset.goodId);
         });
     }
+    let modals = document.querySelectorAll('.modal-window');
     if (modals.length == 1) {
         modals[0].querySelector('.modal-closer').addEventListener('click', () => {
             modals[0].style.display = "none";
