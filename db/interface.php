@@ -22,3 +22,18 @@ function page_slider()
     $slider = mysqli_fetch_all($res,MYSQLI_ASSOC);
     return $slider;
 }
+function select_categories()
+{
+    global $link;
+    $res = mysqli_query($link,"SELECT * FROM `megashop`.`categories`");
+    $categories = mysqli_fetch_all($res,MYSQLI_ASSOC);
+    return $categories;
+}
+
+function footer_icons()
+{
+    global $link;
+    $res = mysqli_query($link,"SELECT * FROM `megashop`.`footer_icon`");
+    $icons = mysqli_fetch_all($res,MYSQLI_ASSOC);
+    return $icons;
+}
