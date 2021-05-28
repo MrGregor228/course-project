@@ -61,12 +61,21 @@ $footer_icons = footer_icons();
                         alt="Toggle button bars icon"></button>
             </div>
             <ul id="menu">
+<<<<<<< HEAD:index.php
             <?php foreach($items as $item ):?>
                 <li><a href="#"><?= $item['title']?></a></li>
            <?php endforeach;?>
            
            <?php foreach ($icons as $icon):?>
                 <li><a href="#" id="toggle-like-modal"><img width="25" src="<?=$icon['image']?>" alt=""><span
+=======
+                <li><a href="#">О нас</a></li>
+                <li><a href="#">Контакты</a></li>
+                <li><a href="#">Оплата и доставка</a></li>
+                <li><a href="./all-goods/">Каталог</a></li>
+                <li><a href="#">Акции</a></li>
+                <li><a href="#" id="toggle-like-modal"><img width="25" src="icons/heart.svg" alt=""><span
+>>>>>>> 076442a77efc94640a417e33560f74548076e7da:index.html
                             id="likes-counter">0</span></a></li>
             <?php endforeach;?>
             </ul>
@@ -186,7 +195,6 @@ $footer_icons = footer_icons();
                         </div>
                     </div>
                 </div>
-
             </div>
             <a href="#" class="watch-more">Смотреть все <svg fill="white" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 192 512">

@@ -1,0 +1,324 @@
+@import "compass/reset";
+@import "../../scss/header.scss";
+@import "../../scss/cards.scss";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+$violet: #533f81;
+$blue: #2988ce;
+$orange: #ff9d00;
+
+/** FF*/
+input[type=range]::-moz-range-progress {
+    background-color: $violet;
+}
+
+input[type=range]::-moz-range-track {
+    background-color: #ddd;
+}
+
+/* IE*/
+input[type=range]::-ms-fill-lower {
+    background-color: $violet;
+}
+
+input[type=range]::-ms-fill-upper {
+    background-color: #ddd;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    input[type=range] {
+        -webkit-appearance: none;
+        background-color: #ddd;
+        border-radius: 30px;
+        box-shadow: 0 0 0 1px gray;
+    }
+
+    input[type=range]::-webkit-slider-runnable-track {
+        height: 16px;
+        -webkit-appearance: none;
+        color: $violet;
+        overflow: hidden;
+        border-radius: 30px;
+        margin-top: -1px;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+        width: 14px;
+        -webkit-appearance: none;
+        height: 14px;
+        margin-top: 1px;
+        cursor: ew-resize;
+        background: white;
+        box-shadow: -500px 0 0 490px $violet, 0 0 0 2px $violet;
+        border-radius: 15px;
+    }
+
+}
+
+:root {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+
+    h2 {
+        font-size: 1.875rem;
+        font-weight: bold;
+    }
+
+    h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+
+    button {
+        font-family: "Montserrat", sans-serif;
+        cursor: pointer;
+        outline: none;
+        border: none;
+        border-radius: 3px;
+    }
+}
+
+.heading {
+    display: block;
+    margin-top: 120px;
+    max-width: 1440px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 15px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+main {
+    max-width: 1440px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    @media screen and (max-width:800px) {
+        flex-direction: column;
+    }
+    section {
+        &.cards-container {
+            .cards-wrapper {
+                min-width: auto;
+                padding-top: 0;
+                margin-top: 7px;
+                flex-wrap: wrap;
+            }
+        }
+    }
+    
+    .filter {
+        display: block;
+        width: 288px;
+        flex-basis: 288px;
+        margin-left: 15px;
+        margin-top: 15px;
+        #open-filter {
+            display: none;
+        }
+        @media screen and (max-width:800px) {
+            flex-basis: auto;
+            display: flex;
+            #open-filter {
+                display: flex;
+                background-color: $violet;
+                color:white;
+                padding: 10px;
+                justify-content: center;
+                font-weight: 500;
+                align-items: center;
+                svg {
+                    margin-right: 5px;
+                }
+            }
+            .filter-overlay {
+                display: none;
+                align-items: center;
+                justify-content: center;
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background-color: rgba(#000, .5);
+                z-index: 999;
+                &.opened {
+                    display: flex;
+                }
+            }
+        }
+        
+
+        .container {
+            border-radius: 5px;
+            overflow: hidden;
+            
+            .filter-header {
+                background-color: $violet;
+                color: white;
+                padding: 15px;
+                font-size: 20px;
+                font-weight: bold;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .close-filter {
+                    background-color: #fff;
+                    color: $violet;
+                    font-size: 25px;
+                    padding: 2px 7px;
+                    border-radius: 30px;
+                    cursor: pointer;
+                    display: none;
+                    @media screen and (max-width:800px) {
+                        display: block;
+                    }
+                }
+
+            }
+
+            .filter-body {
+                padding: 15px;
+                background-color: lighten(lightgray, 10%);
+                border: 1px dashed gray;
+
+                form {
+                    fieldset {
+                        legend {
+                            font-weight: 550;
+                            font-size: 18px;
+                            margin-bottom: 10px;
+                        }
+
+                        &:first-child {
+                            display: flex;
+                            flex-direction: column;
+
+                            #change-price {
+                                display: block;
+                                width: 100%;
+                                margin-top: 15px;
+                            }
+
+                            .input-price-group {
+                                display: flex;
+                                max-width: 100%;
+                                width: 100%;
+
+                                input {
+                                    display: block;
+                                    max-width: 70px;
+                                    box-shadow: 0 0 0 1px lighten(gray, 25%);
+                                    border: none;
+                                    outline: none;
+                                    text-align: center;
+                                    border-radius: 3px;
+
+                                    /* Chrome, Safari, Edge, Opera */
+                                    &::-webkit-outer-spin-button,
+                                    &::-webkit-inner-spin-button {
+                                        -webkit-appearance: none;
+                                        margin: 0;
+                                    }
+
+                                    /* Firefox */
+                                    &[type=number] {
+                                        -moz-appearance: textfield;
+                                    }
+                                }
+
+                                span {
+                                    color: lighten(gray, 25%);
+                                    margin-right: 7px;
+                                    margin-left: 7px;
+                                    align-self: center;
+                                }
+
+                                button {
+                                    background-color: $violet;
+                                    min-width: 65px;
+                                    max-width: 100%;
+                                    width: 100%;
+                                    color: white;
+                                    margin-left: 15px;
+                                    padding: 3px;
+                                    box-shadow: 0 0 0 1px rgba($violet, .2);
+                                }
+                            }
+
+                            #change-price {
+                                margin-bottom: 10px;
+                            }
+                        }
+
+                        .categories-group {
+                            display: flex;
+                            flex-direction: column;
+
+                            label {
+                                display: flex;
+                                align-items: center;
+                                cursor: pointer;
+
+                                &:not(:first-child) {
+                                    margin-top: 7px;
+                                }
+
+                                span:before {
+                                    content: '';
+                                    display: inline-block;
+                                    width: 1em;
+                                    height: 1em;
+                                    flex-shrink: 0;
+                                    flex-grow: 0;
+                                    border: 1px solid rgba($violet, .2);
+                                    border-radius: 0.25em;
+                                    margin-right: 0.5em;
+                                    background-repeat: no-repeat;
+                                    background-position: center center;
+                                    background-size: 50% 50%;
+                                    background-color: lighten(#ddd, 5%);
+                                }
+
+                                input {
+                                    position: absolute;
+                                    z-index: -1;
+                                    opacity: 0;
+                                }
+
+                                &>input:not(:disabled):not(:checked)+span:hover::before {
+                                    opacity: .5;
+                                }
+
+                                &>input:not(:disabled):active+span::before {
+                                    background-color: $violet;
+                                    border-color: $violet;
+                                }
+
+                                &>input:focus+span::before {
+                                    box-shadow: 0 0 0 0.2rem rgba($violet, 0.25);
+                                }
+
+                                &>input:focus:not(:checked)+span::before {
+                                    border-color: rgba($violet, .5);
+                                }
+
+                                &>input:checked+span::before {
+                                    border-color: $violet;
+                                    background-color: $violet;
+                                    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
