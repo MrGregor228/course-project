@@ -1,0 +1,79 @@
+/* line 5, ../scss/footer.scss */
+footer {
+  background-color: #533f81;
+  padding-top: 100px;
+  -webkit-clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+  clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+}
+/* line 11, ../scss/footer.scss */
+footer .footer-content-wrapper {
+  max-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 15px;
+}
+/* line 18, ../scss/footer.scss */
+footer .footer-content-wrapper .footer-column {
+  max-width: calc(33% - 30px);
+  width: 100%;
+  color: white;
+  line-height: 1.5;
+  padding: 15px;
+}
+@media screen and (max-width: 800px) {
+  /* line 18, ../scss/footer.scss */
+  footer .footer-content-wrapper .footer-column {
+    max-width: calc(50% - 30px);
+  }
+}
+@media screen and (max-width: 500px) {
+  /* line 18, ../scss/footer.scss */
+  footer .footer-content-wrapper .footer-column {
+    max-width: 100%;
+  }
+}
+/* line 31, ../scss/footer.scss */
+footer .footer-content-wrapper .footer-column:nth-child(3) ul {
+  display: flex;
+}
+/* line 33, ../scss/footer.scss */
+footer .footer-content-wrapper .footer-column:nth-child(3) ul li:last-child {
+  margin-left: 15px;
+}
+/* line 38, ../scss/footer.scss */
+footer .footer-content-wrapper .footer-column a {
+  color: lightgray;
+  text-decoration: none;
+}
+/* line 42, ../scss/footer.scss */
+footer .footer-content-wrapper .footer-column h6 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+/* line 46, ../scss/footer.scss */
+footer .footer-content-wrapper .footer-column ul {
+  margin-top: 15px;
+}
+/* line 48, ../scss/footer.scss */
+footer .footer-content-wrapper .footer-column ul li {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+/* line 55, ../scss/footer.scss */
+footer .footer-content-wrapper .last-column {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  color: white;
+}
+/* line 60, ../scss/footer.scss */
+footer .footer-content-wrapper .last-column hr {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  border-top: 1px solid #3d2e5f;
+  padding: 0;
+}
